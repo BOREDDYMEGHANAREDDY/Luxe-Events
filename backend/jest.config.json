@@ -1,0 +1,21 @@
+{
+  "testEnvironment": "node",
+  "testMatch": ["**/tests/**/*.test.js"],
+  "collectCoverage": false,
+  "coverageDirectory": "coverage",
+  "coveragePathIgnorePatterns": ["/node_modules/", "/tests/"],
+  "testTimeout": 30000,
+  "setupFiles": ["dotenv/config"],
+  "globals": {
+    "process.env.NODE_ENV": "test",
+    "process.env.JWT_SECRET": "test_jwt_secret_for_testing_only_do_not_use_in_production",
+    "process.env.JWT_EXPIRE": "1d",
+    "process.env.RAZORPAY_KEY_ID": "rzp_test_dummy",
+    "process.env.RAZORPAY_KEY_SECRET": "dummy_secret",
+    "process.env.EMAIL_HOST": "smtp.ethereal.email",
+    "process.env.EMAIL_PORT": "587",
+    "process.env.EMAIL_USER": "test@ethereal.email",
+    "process.env.EMAIL_PASS": "testpass",
+    "process.env.FRONTEND_URL": "http://localhost:3000"
+  }
+}

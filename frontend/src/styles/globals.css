@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────────────────── */
+@layer base {
+  * { @apply border-luxe-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-luxe-black text-white font-body antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 { @apply font-display; }
+  ::selection { background: rgba(184,150,12,0.3); color: #fff; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #111; }
+  ::-webkit-scrollbar-thumb { background: #B8960C; border-radius: 3px; }
+}
+
+/* ─── Components ────────────────────────────────────────────────── */
+@layer components {
+
+  /* Glass card */
+  .glass-card {
+    @apply backdrop-blur-md border border-white/10 shadow-glass;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .glass-card-dark {
+    @apply backdrop-blur-md border border-luxe-border shadow-glass;
+    background: rgba(26, 26, 26, 0.8);
+  }
+
+  /* Gold buttons */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-gradient text-black font-semibold rounded-sm
+           transition-all duration-300 hover:shadow-gold hover:scale-[1.02] active:scale-[0.98]
+           tracking-wider text-sm uppercase;
+  }
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-gold-500 text-gold-500 font-semibold rounded-sm
+           transition-all duration-300 hover:bg-gold-500 hover:text-black hover:shadow-gold
+           tracking-wider text-sm uppercase;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-white/70 font-medium rounded-sm
+           transition-all duration-300 hover:text-white hover:bg-white/5 tracking-wide text-sm;
+  }
+
+  /* Section header */
+  .section-eyebrow {
+    @apply text-gold-500 text-xs font-semibold tracking-[4px] uppercase mb-3 block;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-semibold leading-tight;
+  }
+  .section-subtitle {
+    @apply text-luxe-muted text-lg leading-relaxed max-w-2xl;
+  }
+
+  /* Gold line divider */
+  .gold-divider {
+    @apply flex items-center gap-4 my-6;
+  }
+  .gold-divider::before, .gold-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-gold-gradient opacity-40;
+  }
+
+  /* Input */
+  .luxe-input {
+    @apply w-full bg-luxe-card border border-luxe-border rounded-sm px-4 py-3 text-white placeholder-luxe-muted
+           focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/30
+           transition-all duration-200 text-sm;
+  }
+  .luxe-label {
+    @apply block text-xs font-semibold tracking-widest uppercase text-luxe-muted mb-2;
+  }
+
+  /* Cards */
+  .event-card {
+    @apply relative overflow-hidden rounded-sm bg-luxe-card border border-luxe-border
+           transition-all duration-500 hover:border-gold-500/40 hover:shadow-luxury hover:-translate-y-1;
+  }
+  .venue-card {
+    @apply relative overflow-hidden rounded-sm bg-luxe-card border border-luxe-border
+           transition-all duration-500 hover:border-gold-500/40 hover:shadow-luxury;
+  }
+
+  /* Stat number */
+  .stat-number {
+    @apply text-4xl md:text-5xl font-display font-bold text-gold-500;
+  }
+
+  /* Badge */
+  .badge-gold {
+    @apply inline-flex items-center gap-1 px-3 py-1 bg-gold-500/10 border border-gold-500/20
+           text-gold-400 text-xs font-semibold tracking-wider uppercase rounded-sm;
+  }
+  .badge-status-pending   { @apply bg-yellow-500/10 border-yellow-500/20 text-yellow-400; }
+  .badge-status-confirmed { @apply bg-green-500/10 border-green-500/20 text-green-400; }
+  .badge-status-cancelled { @apply bg-red-500/10 border-red-500/20 text-red-400; }
+  .badge-status-completed { @apply bg-blue-500/10 border-blue-500/20 text-blue-400; }
+  .badge-status-rejected  { @apply bg-red-500/10 border-red-500/20 text-red-400; }
+
+  /* Nav */
+  .nav-link {
+    @apply text-white/70 hover:text-white transition-colors duration-200 text-sm font-medium tracking-wide;
+  }
+  .nav-link-active { @apply text-gold-500; }
+
+  /* Page hero */
+  .page-hero {
+    @apply relative min-h-[40vh] flex items-center justify-center overflow-hidden;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  }
+
+  /* Table */
+  .luxe-table th {
+    @apply text-xs font-semibold tracking-widest uppercase text-luxe-muted px-4 py-3 text-left border-b border-luxe-border;
+  }
+  .luxe-table td {
+    @apply px-4 py-4 text-sm border-b border-luxe-border/50 text-white/80;
+  }
+  .luxe-table tr:hover td { @apply bg-white/2; }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────── */
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #B8960C 0%, #f0c93a 50%, #B8960C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-white\/2 { background-color: rgba(255,255,255,0.02); }
+  .shimmer-bg {
+    background: linear-gradient(90deg, transparent 25%, rgba(184,150,12,0.1) 50%, transparent 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+/* ─── React Datepicker override ────────────────────────────────── */
+.react-datepicker { background: #1a1a1a !important; border: 1px solid #2a2a2a !important; color: #fff !important; }
+.react-datepicker__header { background: #111 !important; border-bottom: 1px solid #2a2a2a !important; }
+.react-datepicker__current-month, .react-datepicker__day-name { color: #fff !important; }
+.react-datepicker__day { color: #ccc !important; border-radius: 0 !important; }
+.react-datepicker__day:hover { background: rgba(184,150,12,0.2) !important; color: #fff !important; }
+.react-datepicker__day--selected { background: #B8960C !important; color: #000 !important; }
+.react-datepicker__day--disabled { color: #444 !important; }
+.react-datepicker__navigation-icon::before { border-color: #B8960C !important; }
+
+/* ─── Swiper override ──────────────────────────────────────────── */
+.swiper-button-next, .swiper-button-prev { color: #B8960C !important; }
+.swiper-pagination-bullet-active { background: #B8960C !important; }
+
+/* ─── Loading skeleton ─────────────────────────────────────────── */
+.skeleton {
+  @apply bg-luxe-card rounded-sm overflow-hidden relative;
+}
+.skeleton::after {
+  content: '';
+  @apply absolute inset-0 shimmer-bg;
+}
+
+/* ─── Custom radio/checkbox ─────────────────────────────────────── */
+.luxe-radio { @apply accent-gold-500; }
+.luxe-checkbox { @apply accent-gold-500; }
