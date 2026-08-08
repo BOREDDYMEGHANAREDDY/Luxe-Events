@@ -181,4 +181,4 @@ After seeding:
 
 ## 📄 License
 
-MIT © 2025 Luxe Events
+MIT © 2026 Luxe Events
