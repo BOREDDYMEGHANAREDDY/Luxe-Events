@@ -25,12 +25,10 @@ export const useFetch = (apiFn, deps = [], options = {}) => {
     } finally {
       setLoading(false);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
   useEffect(() => {
     if (immediate) execute();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { data, loading, error, refetch: execute };
